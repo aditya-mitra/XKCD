@@ -1,7 +1,29 @@
-# php-starter
 
-If you are reading this in your assignment repo, please read [assignment submission guidelines](https://learn.rtcamp.com/campus/php-assignments/guidelines/) before proceeding.
+# XKCD Mailer
 
-Then make sure to replace content of the file with information relevant to your assignment. 
+Email Random XKCD comic every 5 minutes
 
-Writing your own README.md file is required anyway as per [assignment submission guidelines](https://learn.rtcamp.com/campus/php-assignments/guidelines/).
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run deploy
+```
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Authors
+
+- [@aditya-mitra](https://www.github.com/aditya-mitra)
+
