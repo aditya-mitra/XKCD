@@ -13,12 +13,12 @@
             // TODO: check if the email already exists
             
             // insert the user into the database
-            $token = md5($email);
+            $token = md5($email . 'subscribe' . date(DATE_RFC822));
             $stmt = $con->prepare('INSERT INTO subscribers (email, token) VALUES (?,?)');
             $stmt->bind_param('ss',$email, $token);
             $stmt->execute();
 
-                // send verification mail
+            // send verification mail
 
             $to = $email;
             $subject = '[XKCD] Please verify your email';
@@ -49,8 +49,6 @@
                 $clientMessage = 'Email could not be sent to the address specified. Please enter a valid one.';
             }
         }
-
-        $clientMessage = '';
     } else if(filter_has_var(INPUT_POST, 'submit')) {
         $clientMessage = 'Please fill in the email field!';
     }
