@@ -62,7 +62,7 @@
         <div>
             <label>Email</label>
             <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
-            <?php if($clientMessage != ''): ;?>
+            <?php if($clientMessage != ''): ; ?>
                 <div class="error"><?php echo $clientMessage ?></div>
             <?php endif; ?>
             <button type="submit">Submit</button>
