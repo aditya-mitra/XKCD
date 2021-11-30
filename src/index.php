@@ -1,5 +1,7 @@
 <?php
+    require __DIR__ . '/lib/config.php';
     require __DIR__ . '/lib/db.php';
+    
     $clientMessage = '';
     if(isset($_POST['email']) && !empty($_POST['email'])) {
         $email = ($_POST['email']);
@@ -19,22 +21,23 @@
             if($stmt->affected_rows != 0) {
                 // send verification mail
 
-                echo 'sending verification mail';
-
                 $to = $email;
-                $subject = 'Xkcd Comics Subscription';
-                $url = "https://google.com/verification.php?email=$email&token=$token";
+                $subject = '[XKCD] Please verify your email';
+                $url = $serverLink . "/verify.php?email=$to&token=$token";
                 $msg ="
-                            <html>
+                        <html>
                             <head>
-                                <title>Subscription Email</title>
+                                <title>Please verify your email</title>
                             </head>
-                            <body'>
-                                send mail function working
+                            <body>
+                                Hello subscriber,
+                                Please click on <strong><a href=\"$url\">this link</a></strong> to start receiving mails.
+
+                                If the clicking on the above link does not work, you may paste <code>$url</code> into the address bar of your browser.
                             </body>
                         </html> 
                     ";
-                $headers =  "From: gamersinstinct8@gmail.com". "\r\n";
+                $headers =  "From: $mailSender". "\r\n";
 
                 $res = mail($to, $subject, $msg, $headers);
                 echo "res = $res";
