@@ -33,7 +33,7 @@
                             <p>Please click on <strong><a href=\"$url\">this link</a></strong> to start receiving mails.</p>
 
                             <hr>
-                            
+
                             <p>If the clicking on the above link does not work, you may paste <code>$url</code> into the address bar of your browser.<p>
                         </body>
                     </html> 
@@ -60,11 +60,11 @@
 <main>
     <h1>XKCD Mailer</h1>
 
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="POST" action="<?php echo isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '' ; ?>">
         <div>
             <label>Email</label>
             <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
-            <?php if($clientMessage != ''): ?>
+            <?php if($clientMessage != ''): ;?>
                 <div class="error"><?php echo $clientMessage ?></div>
             <?php endif; ?>
             <button type="submit">Submit</button>
