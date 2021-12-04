@@ -2,6 +2,13 @@
     require __DIR__ . '/config.php';
     require __DIR__ . '/db.php';
 
+    if(!isset($argv) || !is_array($argv) || !isset($argv[1]) || $argv[1] != $cron_run_pass) {
+
+        echo "invalid credentials provided";
+        return;
+        
+    }
+
     // get the number of comic urls
     $responseData = file_get_contents( $xkcdLink['base_url'] . '/' . $xkcdLink['info']);
     $jsonData = json_decode($responseData,true);
@@ -13,10 +20,11 @@
     $stmt->execute();
     $results = $stmt->get_result();
 
+    $persons_sent = 0;
+
     foreach($results as $res) {
         $to = $res['email'];
         $token = $res['token'];
-        echo 'sending to '.$to.'<br>';
 
         $subject = '[XKCD] Your next comic has arrived';
         $url = $serverLink . "/unsubscribe.php?email=$to&token=$token";
@@ -52,5 +60,12 @@
         $headers .= "MIME-Version: 1.0" . "\r\n";
 
         $res = mail($to, $subject, $msg, $headers);
+        
+        if($res === true) {
+            echo 'email was sent to ' . $to . "\n";
+            $persons_sent = $persons_sent + 1;
+        }
     }
+
+    echo 'Mails were to ' . $persons_sent . ' people' . "\n\n";
 ?>

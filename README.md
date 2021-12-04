@@ -116,4 +116,19 @@ debug_logfile=debug.log
 auth_username=username@gmail.com
 auth_password=your_password
 ```
+
+## Script to send email
+
+```bat
+C:\xampp\php\php C:\xampp\htdocs\php-aditya-mitra\src\lib\email_subscribers.php simple-cron-pass
+```
+
+## Jobs to Todo
+
+- At each update, copy the `php-aditya-mitra` folder to ec2 instance
+- CLOSE access to `php-my-admin` once your ec2 server is fully ready
+- move the contents of the `src` folder in ec2 to the main `htdocs` folder in xampp so that they can be accessed user `/`
+- provide a db password in the ec2
+
+
 </details>
