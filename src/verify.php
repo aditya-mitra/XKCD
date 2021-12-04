@@ -4,8 +4,7 @@
     $email = null;
     $message = null;
 
-
-    if(false && isset($_GET['email']) && !empty($_GET['email']) && isset($_GET['token']) && !empty($_GET['token'])) {
+    if(isset($_GET['email']) && !empty($_GET['email']) && isset($_GET['token']) && !empty($_GET['token'])) {
         $email = $_GET['email'];
         $token = $_GET['token'];
 
