@@ -1,6 +1,11 @@
 <?php
     require_once __DIR__ . '/lib/db.php';
-    if(isset($_GET['email']) && !empty($_GET['email']) && isset($_GET['token']) && !empty($_GET['token'])) {
+
+    $email = null;
+    $message = null;
+
+
+    if(false && isset($_GET['email']) && !empty($_GET['email']) && isset($_GET['token']) && !empty($_GET['token'])) {
         $email = $_GET['email'];
         $token = $_GET['token'];
 
@@ -15,17 +20,31 @@
             $stmt->bind_param('ss', $newToken, $email);
             $stmt->execute();
             if($stmt->affected_rows > 0) {
-                echo 'your email has been verified!';
+                $message = 'Your email has now been verified';
             } else {
-                echo 'you email has already been verified';
+                $message = 'Your email has already been verified';
             }
-            // redirect to index page
         } else {
             // redirect to 404 page
             echo 'not found';
         }
     } else {
-        echo 'error - email and token were not found';
+        // still redirect to 404 page
+        // echo 'error - email and token were not found';
     }
 
 ?>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/verify-success.css">
+</head>
+<body>
+    <div class="container" id="mobile">
+        <div class= "text-container">
+            <h1><i class="fa fa-check-circle" aria-hidden="true" style="color: #E6A1C3;"></i> Email Verified</h1>
+            <p><?php echo isset($message) ? $message : '' ; ?> | <span class="verified-email"><u><?php echo isset($email) ? $email : '' ; ?></span></u></p>
+            <a href="/" class= "button">Go to app now</a>
+        </div>
+    </div>
+</body>
