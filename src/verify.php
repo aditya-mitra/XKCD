@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . '/lib/db.php';
+    require __DIR__ . '/lib/helpers/check_and_verify.php';
 
     $email = null;
     $message = null;
@@ -8,21 +9,15 @@
         $email = $_GET['email'];
         $token = $_GET['token'];
 
-        $stmt = $con->prepare('SELECT * FROM subscribers WHERE email =? AND token=?');
-        $stmt->bind_param('ss',$email,$token);
-        $stmt->execute();
+        $doesExist = checkEmailBeforeActivation($con, $email, $token);
 
-        $results = $stmt->get_result();
-        if($results->num_rows > 0) {
-            $newToken = md5($email . 'unsubscribe' . date(DATE_RFC822));
-            $stmt = $con->prepare('UPDATE subscribers SET isActive=1, token=? WHERE email =?');
-            $stmt->bind_param('ss', $newToken, $email);
-            $stmt->execute();
-            if($stmt->affected_rows > 0) {
+        if($doesExist === true) {
+            $wasActivated = activateSubscriber($con, $email);
+            
+            if($wasActivated === true) {
                 $message = 'Your email has now been verified';
-            } else {
-                $message = 'Your email has already been verified';
             }
+            
         } else {
             // redirect to 404 page
             echo 'not found';
