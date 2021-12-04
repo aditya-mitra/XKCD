@@ -5,6 +5,7 @@
 
 <?php
     require __DIR__ . '/lib/db.php';
+    require __DIR__ . '/lib/helpers/check_and_unsubscribe.php';
     
     $message = null;
     $email = null;
@@ -20,19 +21,13 @@
 
         $email = $_POST['email'];
         $token = $_POST['token'];
+
+        $emailExist = doesEmailExist($con, $email, $token);
         
-        $stmt = $con->prepare('SELECT * FROM subscribers WHERE email=? AND token=? AND isActive=1');
-        $stmt->bind_param('ss', $email, $token);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        if($result->num_rows <= 0) {
+        if($emailExist === false) {
             $message = 'We could not find the corresponding email in our subscriptions!';
         } else {
-            $stmt = $con->prepare('DELETE FROM subscribers WHERE email =?');
-            $stmt->bind_param('s', $email);
-            $stmt->execute();
+            deleteEmailForUnsubscription($con, $email);
 
             $message =  'You have successfully unsubscribed!';
         } 
