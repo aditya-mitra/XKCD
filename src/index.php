@@ -45,7 +45,7 @@
 
 <body>
     <?php if($clientMessage != ''): ; ?>
-        <div class="flash-message"><?php echo $clientMessage ?></div>
+        <div class="flash-message"><?php echo $clientMessage ;?></div>
     <?php endif; ?>
 
     <main>
