@@ -55,18 +55,35 @@
     }
 ?>
 
+<head>
+    <title>XKCD Mailer | Home</title>
+    <link rel="stylesheet" href="assets/css/subscribe-form.css">
+</head>
 
-<main>
-    <h1>XKCD Mailer</h1>
+<body>
+    <main>
+        <h1 class="heading-1">XKCD Mailer 2</h1>
 
-    <form method="POST" action="<?php echo isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '' ; ?>">
-        <div>
-            <label>Email</label>
-            <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
-            <?php if($clientMessage != ''): ; ?>
-                <div class="error"><?php echo $clientMessage ?></div>
-            <?php endif; ?>
-            <button type="submit">Submit</button>
+        <div class="card-form">
+            <form class="signup" method="POST" action="<?php echo isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '' ; ?>">
+                <div class="form-title">
+                    Sign Up for the XKCD Newsletter!
+                </div>
+                <div class="form-body">
+                    <div class="row">
+                        <input type="text" placeholder="Email Address*" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
+                    </div>
+                </div>
+                <div class="rule"></div>
+                <div class="form-footer">
+                    <button type="submit">Sign Me Up!<span class="fa fa-thumbs-o-up"></span></button>
+                    <!-- <a>Not Now!<span class="fa fa-ban"></span></a> -->
+                    <?php if($clientMessage != ''): ; ?>
+                        <div class="error"><?php echo $clientMessage ?></div>
+                    <?php endif; ?>
+                </div>
+            </form>
         </div>
-    </form>
-</main>
+
+    </main>
+</body>

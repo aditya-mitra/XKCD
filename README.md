@@ -125,9 +125,9 @@ C:\xampp\php\php C:\xampp\htdocs\php-aditya-mitra\src\lib\email_subscribers.php 
 
 ## Jobs to Todo
 
+- check the locally created task-scheduler and then copy the config/settings to the ec2
 - At each update, copy the `php-aditya-mitra` folder to ec2 instance
-- CLOSE access to `php-my-admin` once your ec2 server is fully ready
-- move the contents of the `src` folder in ec2 to the main `htdocs` folder in xampp so that they can be accessed user `/`
+- move the contents of the `src` folder in ec2 to the main `htdocs` folder in xampp so that they can be accessed at `/`
 - provide a db password in the ec2
 
 
