@@ -1,0 +1,37 @@
+.flash-message {
+    padding: 25px 15px;
+    width: 600px;
+    animation-name: fade-out, collapse;
+    animation-duration: 1s, 300ms;
+    animation-delay: 4s, 5s;
+    animation-fill-mode: both, both;
+    border-radius: 15px;
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+  }
+  .flash-message:hover {
+    animation-play-state: paused;
+  }
+  
+  .flash-message {
+    background-color: sandybrown;
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes collapse {
+    0% {
+      max-height: 200px;
+    }
+    100% {
+      max-height: 0;
+      padding: 0;
+    }
+  }
