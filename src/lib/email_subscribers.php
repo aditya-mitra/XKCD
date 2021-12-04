@@ -9,6 +9,26 @@
         
     }
 
+    $stmt = $con->prepare("SELECT * FROM cron_runs LIMIT 1");
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if($result->num_rows <= 0) {
+        echo 'the cron_runs table is empty' . "\n";
+        return;
+    }
+
+    $result = $result->fetch_assoc();
+    $last_runs = $result['lastRuns'];
+    $success_runs = $result['sucessfulRuns'];
+    $rid = $result['id'];
+
+    if($last_runs > $cron_run_max_limit) {
+        echo 'exceeded MAX LIMIT of cron runs' . "\n";
+        return;
+    }
+
     // get the number of comic urls
     $responseData = file_get_contents( $xkcdLink['base_url'] . '/' . $xkcdLink['info']);
     $jsonData = json_decode($responseData,true);
@@ -67,5 +87,14 @@
         }
     }
 
-    echo 'Mails were to ' . $persons_sent . ' people' . "\n\n";
+    // update successful runs and last runs
+
+    $success_runs = $success_runs + 1;
+    $last_runs = $last_runs + 1;
+
+    $stmt = $con->prepare("UPDATE cron_runs SET sucessfulRuns=? , lastRuns=? WHERE id=?");
+    $stmt->bind_param('iii', $success_runs, $last_runs, $rid);
+    $stmt->execute();
+
+    echo 'Mails were sent to ' . $persons_sent . ' people' . "\n\n";
 ?>
