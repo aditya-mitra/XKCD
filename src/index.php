@@ -43,7 +43,8 @@
             $headers .= "MIME-Version: 1.0" . "\r\n";
 
             $res = mail($to, $subject, $msg, $headers);
-            if($res === 1){
+            echo "<strong>response</strong> $res";
+            if($res === true){
                 $clientMessage = 'A verification email has been sent to your account. Please verify it to start receiving comics.';
             } else {
                 $clientMessage = 'Email could not be sent to the address specified. Please enter a valid one.';
