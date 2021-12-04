@@ -1,0 +1,57 @@
+.outer-loader
+{
+	position: relative;
+	height: 4rem;
+	width: 4rem;
+	border-radius: 50%;
+	display: inline-block;
+    margin: 50px 225px;
+}
+.ball
+{
+	display: block;
+	border-radius: 50%;
+	background: green;
+	height: 0.75rem;
+	width: 0.75rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -0.375rem;
+}
+.ball-1
+{
+	animation: load infinite 2s linear;
+}
+.ball-2
+{
+	animation: load infinite 2s linear 0.25s;
+}
+.ball-3
+{
+	animation: load infinite 2s linear 0.5s;
+}
+.ball-4
+{
+	animation: load infinite 2s linear 0.75s;
+}
+
+@keyframes load
+{
+	0%
+	{
+		transform: rotate(0deg) translate(3rem);
+	}
+	50%
+	{
+		transform: rotate(120deg) translate(3rem);
+	}
+	75%
+	{
+		transform: rotate(240deg) translate(3rem);
+	}
+	100%
+	{
+		transform: rotate(360deg) translate(3rem);
+	}
+}

@@ -40,6 +40,7 @@
     <title>XKCD Mailer | Home</title>
     <link rel="stylesheet" href="assets/css/subscribe-form.css">
     <link rel="stylesheet" href="assets/css/subscribe-flash.css">
+    <link rel="stylesheet" href="assets/css/form-loader.css">
 </head>
 
 <body>
@@ -57,17 +58,24 @@
                 </div>
                 <div class="form-body">
                     <div class="row">
-                        <input type="text" placeholder="Email Address*" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>">
+                        <input type="text" placeholder="Email Address*" name="email" class="form-control" value="<?php echo isset($email) ? $email : ''; ?>">
                     </div>
                 </div>
                 <div class="rule"></div>
                 <div class="form-footer">
-                    <button type="submit">Sign Me Up!</button>
-                    <!-- <a>Not Now!<span class="fa fa-ban"></span></a> -->
-                    
+                    <button type="submit" id="sign-up">Sign Me Up!</button>
                 </div>
             </form>
         </div>
 
+        <div class="outer-loader" id="outer-loader-id" style="display: none;">
+			<div class="ball ball-1"></div>
+			<div class="ball ball-2"></div>
+			<div class="ball ball-3"></div>
+			<div class="ball ball-4"></div>
+		</div>
+
     </main>
 </body>
+
+<script src="assets/js/subscribe-form.js"></script>
