@@ -7,3 +7,5 @@
     <p>&copy 2021 - XKCD Mailer</p>
   </div>
 </footer>
+
+<?php ; ?>

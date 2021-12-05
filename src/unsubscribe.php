@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/lib/layout/header.php' ?>
+<?php require __DIR__ . '/lib/layout/header.php' ; ?>
 
 <head>
     <title>XKCD Mailer | Unsubscribe</title>
@@ -65,4 +65,4 @@
 
 <script src="assets/js/unsubscribe-form.js"></script>
 
-<?php require __DIR__ . '/lib/layout/footer.php' ?>
+<?php require __DIR__ . '/lib/layout/footer.php' ; ?>

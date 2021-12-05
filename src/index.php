@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/lib/layout/header.php' ?>
+<?php require __DIR__ . '/lib/layout/header.php' ; ?>
 
 <?php
     require __DIR__ . '/lib/config.php';
@@ -83,4 +83,4 @@
 
 <script src="assets/js/subscribe-form.js"></script>
 
-<?php require __DIR__ . '/lib/layout/footer.php' ?>
+<?php require __DIR__ . '/lib/layout/footer.php' ; ?>
