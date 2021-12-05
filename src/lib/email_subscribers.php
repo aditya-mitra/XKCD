@@ -30,6 +30,7 @@
     }
 
     $jsonData = getRandomXKCD($xkcdLink);
+    $encodedImageFile = getImageEncodedFile($jsonData['img']);
 
     $stmt = $con->prepare('SELECT * FROM subscribers WHERE isActive = 1');
     $stmt->execute();
@@ -38,10 +39,10 @@
     $persons_sent = 0;
 
     foreach($results as $subscriber) {
-        $res = sendXKCDMail($subscriber, $serverLink, $jsonData, $xkcdLink, $mailSender);
+        $res = sendXKCDMail($subscriber, $serverLink, $jsonData, $encodedImageFile, $xkcdLink, $mailSender);
         
         if($res === true) {
-            echo 'email was sent to ' . $subscriber['mail'] . "\n";
+            echo 'email was sent to ' . $subscriber['email'] . "\n";
             $persons_sent = $persons_sent + 1;
         }
     }
