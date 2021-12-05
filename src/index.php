@@ -6,7 +6,7 @@
     require __DIR__ . '/lib/helpers/send_confirmation_mail.php';
     require __DIR__ . '/lib/helpers/check_and_insert_subscription.php';
     
-    $clientMessage = 'A verification email has been sent to your account. Please verify it to start receiving comics.';
+    $clientMessage = '';
     
     if(isset($_POST['email']) && !empty($_POST['email'])) {
         $email = ($_POST['email']);
@@ -24,6 +24,7 @@
     
                 $sendStatus = sendConfirmationMail($email, $token, $mailSender, $serverLink);
                 
+                // todo: remove the below debug line
                 echo "<strong>response = $sendStatus</strong>";
                 if($sendStatus === true){
                     $clientMessage = 'A verification email has been sent to your account. Please verify it to start receiving comics.';
