@@ -1,134 +1,68 @@
-
 # XKCD Mailer
 
-Email Random XKCD comic every 5 minutes
+A simple PHP app to deliver XKCD comics right into your mailbox.
 
+**Live Demo Link:** http://18.220.47.108/
+  
+## Problem Statement
 
-## Deployment
+```
+### 1. Email a random XKCD challenge
 
-To deploy this project run
+Please create a simple PHP application that accepts a visitor’s email address and emails them random XKCD comics every five minutes.
 
-```bash
-  npm run deploy
+1.  Your app should include email verification to avoid people using others’ email addresses.
+2.  XKCD image should go as an email attachment as well as inline image content.
+3.  You can visit https://c.xkcd.com/random/comic/ programmatically to return a random comic URL and then use JSON API for details https://xkcd.com/json.html
+4.  Please make sure your emails contain an unsubscribe link so a user can stop getting emails.
+
+Since this is a simple project it must be done in core PHP including API calls, recurring emails, including attachments should happen in core PHP. Please do not use any libraries.
 ```
 
+**Relevant Links:**
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
+- https://learn.rtcamp.com/campus/php-assignments/
+- https://learn.rtcamp.com/campus/php-assignments/guidelines/
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img src="https://i.ibb.co/kGwGmsV/image.png" alt="image" border="0">
 
+<img src="https://i.ibb.co/pvywQk7/image.png" alt="image" border="0">
 
-## Authors
+<img src="https://i.ibb.co/d0pP14k/image.png" alt="image" border="0">
 
-- [@aditya-mitra](https://www.github.com/aditya-mitra)
+<img src="https://i.ibb.co/qYTJNcj/image.png" alt="image" border="0">
+<img src="https://i.ibb.co/crWMshY/image.png" alt="image" border="0">
 
+## Usage
 
-<details>
+The website is live and can be accessed at http://18.220.47.108/
 
-<summary>
+#### To subscribe and start receiving comics:
 
-### Few Specific Setup Instruction
+1. Enter your email address at the _email address_ input.
+2. Now click on the _sign up_ button.
+3. If there was an error, the appropriate message will be shown. Otherwise, an verification link will be sent to the email-id.
+4. Now, open your inbox and check the corresponding email (It will have the author as _Aditya Mitra_ and the subject as _Please verify your email_). **If you can't find the email in the inbox folder, please check the spam folder.**
+5. Now, open the email and click on the verification link in it. Your email is now verified and up for taking emails.
 
-</summary>
+#### To unsubscribe and stop receiving comics:
 
-## Setting up gmail smtp on xampp
+1. Open any email in which you have received a comic.
+2. At the bottom of the email, you can find an underlined _unsubscribe_ link. Click on that link.
+3. It will open a new page and ask for your confirmation. Once, you click on _Confirm_ button your email address will deleted from the database and you will not receive any more emails.
 
-Go to your `php.ini` file and search for `[mail function]` _(inside sendmail folder under xampp)_. Change the details as follows:
-```ini
-[mail function]
-; For Win32 only.
-; http://php.net/smtp
-SMTP=smtp.gmail.com
-; http://php.net/smtp-port
-smtp_port=587
+### Please Note
 
-; For Win32 only.
-; http://php.net/sendmail-from
-;sendmail_from = me@example.com
+- After subscription, XKCD comic will be sent to your mailbox **within the next 5 minutes** (as soon as the scheduler picks up the job).
+- Once you or a new email address subscribes, you will receive 7 emails in your inbox. before **After this limit, you will not receive any more emails until a new subscriber has been inserted**. If I had done so to avoid exceeding the GMail SMTP limits and ensure that the live demo works without friction.
+- Since I am using the GMail's SMTP option to send email, there can be a possible delay of _4-5 minutes_ when there are more than a couple of subscribed email-addresses in the database.
 
-; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
-; http://php.net/sendmail-path
-sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+## Author
 
-; Force the addition of the specified parameters to be passed as extra parameters
-; to the sendmail binary. These parameters will always replace the value of
-; the 5th parameter to mail().
-;mail.force_extra_parameters =
+**Aditya Mitra**
 
-; Add X-PHP-Originating-Script: that will include uid of the script followed by the filename
-mail.add_x_header=Off
-
-; The path to a log file that will log all mail() calls. Log entries include
-; the full path of the script, line number, To address and headers.
-;mail.log =
-; Log mail to syslog (Event Log on Windows).
-;mail.log = sy  slog
-```
-
-Now go to `sendmail.ini` _(inside sendmail folder under xampp)_. Change the details as follows _(upto auth password)_:
-
-```ini
-[sendmail]
-
-; you must change mail.mydomain.com to your smtp server,
-; or to IIS's "pickup" directory.  (generally C:\Inetpub\mailroot\Pickup)
-; emails delivered via IIS's pickup directory cause sendmail to
-; run quicker, but you won't get error messages back to the calling
-; application.
-
-smtp_server=smtp.gmail.com
-
-; smtp port (normally 25)
-
-smtp_port=587
-
-; SMTPS (SSL) support
-;   auto = use SSL for port 465, otherwise try to use TLS
-;   ssl  = alway use SSL
-;   tls  = always use TLS
-;   none = never try to use SSL
-
-smtp_ssl=tls
-
-; the default domain for this server will be read from the registry
-; this will be appended to email addresses when one isn't provided
-; if you want to override the value in the registry, uncomment and modify
-
-;default_domain=mydomain.com
-
-; log smtp errors to error.log (defaults to same directory as sendmail.exe)
-; uncomment to enable logging
-
-error_logfile=error.log
-
-; create debug log as debug.log (defaults to same directory as sendmail.exe)
-; uncomment to enable debugging
-
-debug_logfile=debug.log
-
-; if your smtp server requires authentication, modify the following two lines
-
-auth_username=username@gmail.com
-auth_password=your_password
-```
-
-## Script to send email
-
-```bat
-C:\xampp\php\php C:\xampp\htdocs\php-aditya-mitra\src\lib\email_subscribers.php simple-cron-pass
-```
-
-## Jobs to Todo
-
-- check the locally created task-scheduler and then copy the config/settings to the ec2
-- At each update, copy the `php-aditya-mitra` folder to ec2 instance
-- move the contents of the `src` folder in ec2 to the main `htdocs` folder in xampp so that they can be accessed at `/`
-- provide a db password in the ec2
-
-
-</details>
+**GitHub:** https://github.com/aditya-mitra/
+**Portfolio:** https://aditya-mitra.github.io/
+**Linkedin:** https://www.linkedin.com/in/aditya--mitra/
