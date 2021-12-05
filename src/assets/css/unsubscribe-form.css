@@ -52,7 +52,7 @@
   .buttons button {
     padding: 10px 30px;
     font-size: 20px;
-    background-color: #d960ae;
+    background-color: #45A040;
     border: 0;
     cursor: pointer;
     border-radius: 4px;
@@ -63,15 +63,15 @@
     transition: all 0.25s ease-in-out;
   }
   .buttons button:hover {
-    background-color: #cf3799;
+    background-color: #388334;
   }
   .buttons button#cancel {
     margin-right: 0;
-    color: #333;
-    background-color: #eddfeb;
+    color: white;
+    background-color: #77E4B7;
   }
   .buttons button#cancel:hover {
-    background-color: #dbbed7;
+    background-color: #31D892;
   }
   .buttons button:focus {
     border: none;

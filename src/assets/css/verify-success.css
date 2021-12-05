@@ -1,5 +1,5 @@
 body {
-    color: #414141;
+    color: #3C3E3E;
   }
   .container {
     font-family: "Helvetica Neue", Helvetica;
@@ -22,7 +22,7 @@ body {
     font-family: "Helvetica Neue", Helvetica;
     font-size: 18px;
     color: white;
-    background-color: #e6a1c3;
+    background-color: #72C56D;
     border: 0;
     border-radius: 5px;
     margin: 10px;
@@ -36,6 +36,6 @@ body {
   }
   
   .verified-email {
-    color: #9DA4DB;
+    color: #666B6A  ;
     font-weight: 800;
   }
