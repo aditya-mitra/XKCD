@@ -1,3 +1,5 @@
+<?php require __DIR__ . '/lib/layout/header.php' ?>
+
 <?php
     require __DIR__ . '/lib/config.php';
     require __DIR__ . '/lib/db.php';
@@ -13,7 +15,7 @@
             $clientMessage = 'Please enter a valid email!';
         } else {
 
-            if(checkEmailExists($con, $email)) {
+            if(checkEmailExistsBeforeSubscribtion($con, $email)) {
                 $clientMessage = 'This email is already registered. You can try subscribing with a new email!';
                 $email = '';
             } else {
@@ -48,9 +50,7 @@
         <div class="flash-message"><?php echo $clientMessage ; ?></div>
     <?php endif; ?>
 
-    <main>
-        <h1 class="heading-1">XKCD Mailer</h1>
-
+    <main class="main">
         <div class="card-form">
             <form class="signup" method="POST" action="<?php echo isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '' ; ?>">
                 <div class="form-title">

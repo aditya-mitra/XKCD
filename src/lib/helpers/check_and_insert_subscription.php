@@ -1,5 +1,5 @@
 <?php
-    function checkEmailExists($con, $email) {
+    function checkEmailExistsBeforeSubscribtion($con, $email) {
         $stmt = $con->prepare('SELECT * FROM subscribers WHERE email=?');
         $stmt->bind_param('s',$email);
         $stmt->execute();

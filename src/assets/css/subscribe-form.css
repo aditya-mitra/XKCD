@@ -1,13 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 
-.heading-1 {
-    font-size: 30px;
-    text-align: center;
-}
-
-body {
+.main {
+  margin-top: 7rem;
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
