@@ -2,7 +2,7 @@
 
 function sendConfirmationMail($to, $token, $mailSender, $serverLink) {
     
-    $subject = '[XKCD] Please verify your email';
+    $subject = '[XKCD Confirm] Please verify your email';
     $url = $serverLink . "/verify.php?email=$to&token=$token";
     $msg ="
             <html>

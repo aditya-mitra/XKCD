@@ -25,8 +25,6 @@
     
                 $sendStatus = sendConfirmationMail($email, $token, $mailSender, $serverLink);
                 
-                // todo: remove the below debug line
-                echo "<strong>response = $sendStatus</strong>";
                 if($sendStatus === true){
                     resetCronRuns($con);
                     $clientMessage = 'A verification email has been sent to your account. Please verify it to start receiving comics.';

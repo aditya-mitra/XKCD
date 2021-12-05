@@ -7,7 +7,7 @@ function sendXKCDMail($subscriber, $serverLink, $jsonData, $encodedImageFile, $x
     $to = $subscriber['email'];
     $token = $subscriber['token'];
 
-    $subject = '[XKCD Mailer] Your next comic has arrived';
+    $subject = '[XKCD Mail] Your next comic has arrived';
     $url = $serverLink . "/unsubscribe.php?email=$to&token=$token";
 
     $boundry = date(DATE_RFC822);
@@ -57,8 +57,6 @@ function sendXKCDMail($subscriber, $serverLink, $jsonData, $encodedImageFile, $x
     $msg .= 'Content-Transfer-Encoding: base64'."\r\n";
     $msg .= 'X-Attachment-Id: '.rand(1000, 99999)."\r\n\r\n";
     $msg .=  $encodedImageFile;
-
-    // TODO: center all the contents after h3
 
     $res = mail($to, $subject, $msg, $headers);
 

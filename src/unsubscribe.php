@@ -36,8 +36,7 @@
         
         $status_done = true;
     } else {
-        // redirect to 404 page
-        $message = 'redirect to 404';
+        header('Location: /404.php');
     }
 ?>
 
@@ -54,7 +53,7 @@
                         <button id="unsubscribe" type="submit">Unsubscribe</button>
                         <button id="cancel">Cancel</button>
                     <?php else: ; ?>
-                        <button id="cancel">Go To Home</button>
+                        <button id="cancel">Go to Home</button>
                     <?php endif ; ?>
                 </form>
             </div>

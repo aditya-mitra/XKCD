@@ -21,12 +21,10 @@
             }
             
         } else {
-            // redirect to 404 page
-            echo 'not found';
+            header('Location: /404.php');
         }
     } else {
-        // still redirect to 404 page
-        // echo 'error - email and token were not found';
+        header('Location: /404.php');
     }
 
 ?>
