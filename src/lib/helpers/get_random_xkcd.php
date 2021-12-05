@@ -16,8 +16,11 @@
         echo 'getting the image from the img url of the comic' . "\n\n";
         
         $imageFile = file_get_contents($imgLink);
-        $encodedImageFile = chunk_split(base64_encode($imageFile));
+        if($imageFile !== '') {
+            $encodedImageFile = chunk_split(base64_encode($imageFile));
+            return $encodedImageFile;
+        }
 
-        return $encodedImageFile;
+        return '';
     }
 ?>
