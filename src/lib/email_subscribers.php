@@ -41,7 +41,7 @@
         $res = sendXKCDMail($subscriber, $serverLink, $jsonData, $xkcdLink, $mailSender);
         
         if($res === true) {
-            echo 'email was sent to ' . $to . "\n";
+            echo 'email was sent to ' . $subscriber['mail'] . "\n";
             $persons_sent = $persons_sent + 1;
         }
     }

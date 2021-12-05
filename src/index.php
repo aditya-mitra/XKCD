@@ -5,6 +5,7 @@
     require __DIR__ . '/lib/db.php';
     require __DIR__ . '/lib/helpers/send_confirmation_mail.php';
     require __DIR__ . '/lib/helpers/check_and_insert_subscription.php';
+    require __DIR__ . '/lib/helpers/reset_cron_runs.php';
     
     $clientMessage = '';
     
@@ -27,6 +28,7 @@
                 // todo: remove the below debug line
                 echo "<strong>response = $sendStatus</strong>";
                 if($sendStatus === true){
+                    resetCronRuns($con);
                     $clientMessage = 'A verification email has been sent to your account. Please verify it to start receiving comics.';
                 } else {
                     $clientMessage = 'Email could not be sent to the address specified. Please enter a valid one.';
