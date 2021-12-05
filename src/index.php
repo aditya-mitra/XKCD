@@ -6,7 +6,7 @@
     require __DIR__ . '/lib/helpers/send_confirmation_mail.php';
     require __DIR__ . '/lib/helpers/check_and_insert_subscription.php';
     
-    $clientMessage = '';
+    $clientMessage = 'A verification email has been sent to your account. Please verify it to start receiving comics.';
     
     if(isset($_POST['email']) && !empty($_POST['email'])) {
         $email = ($_POST['email']);
@@ -46,11 +46,11 @@
 </head>
 
 <body>
-    <?php if($clientMessage != ''): ; ?>
-        <div class="flash-message"><?php echo $clientMessage ; ?></div>
-    <?php endif; ?>
-
     <main class="main">
+        <?php if($clientMessage != ''): ; ?>
+            <div class="flash-message"><?php echo $clientMessage ; ?></div>
+        <?php endif; ?>
+
         <div class="card-form">
             <form class="signup" method="POST" action="<?php echo isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '' ; ?>">
                 <div class="form-title">

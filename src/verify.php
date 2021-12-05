@@ -1,3 +1,5 @@
+<?php require __DIR__ . '/lib/layout/header.php' ?>
+
 <?php
     require_once __DIR__ . '/lib/db.php';
     require __DIR__ . '/lib/helpers/check_and_verify.php';
@@ -30,15 +32,16 @@
 ?>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/verify-success.css">
 </head>
 <body>
     <div class="container" id="mobile">
         <div class= "text-container">
-            <h1><i class="fa fa-check-circle" aria-hidden="true" style="color: #E6A1C3;"></i> Email Verified</h1>
+            <h1>✔ Email Verified</h1>
             <p><?php echo isset($message) ? $message : '' ; ?> | <span class="verified-email"><u><?php echo isset($email) ? $email : '' ; ?></span></u></p>
             <a href="/" class= "button">Go to app now</a>
         </div>
     </div>
 </body>
+
+<?php require __DIR__ . '/lib/layout/footer.php' ?>

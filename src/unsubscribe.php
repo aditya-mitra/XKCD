@@ -1,3 +1,5 @@
+<?php require __DIR__ . '/lib/layout/header.php' ?>
+
 <head>
     <title>XKCD Mailer | Unsubscribe</title>
     <link rel="stylesheet" href="assets/css/unsubscribe-form.css">
@@ -62,3 +64,5 @@
 
 
 <script src="assets/js/unsubscribe-form.js"></script>
+
+<?php require __DIR__ . '/lib/layout/footer.php' ?>

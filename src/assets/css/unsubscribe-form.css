@@ -1,23 +1,11 @@
-* {
-    box-sizing: border-box;
-    font-family: "Cabin", Arial, sans-serif;
-  }
-  
-  body {
-    width: 100vw;
-    height: 100vh;
-    color: #373737;
-    margin: 0;
-    padding: 0;
-  }
-  
+ 
   .container {
     width: 600px;
     transform: translate(-50%, -15%);
-    top: 15%;
+    position: absolute;
+    top: 30%;
     left: 50%;
     margin: 0;
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: flex-start;
