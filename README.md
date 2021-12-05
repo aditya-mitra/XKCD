@@ -56,7 +56,7 @@ The website is live and can be accessed at http://18.220.47.108/
 ### Please Note
 
 - After subscription, XKCD comic will be sent to your mailbox **within the next 5 minutes** (as soon as the scheduler picks up the job).
-- Once you or a new email address subscribes, you will receive 7 emails in your inbox. before **After this limit, you will not receive any more emails until a new subscriber has been inserted**. If I had done so to avoid exceeding the GMail SMTP limits and ensure that the live demo works without friction.
+- Once you or a new email address subscribes, you will receive 7 emails in your inbox. **After this limit, you will not receive any more emails until a new subscriber has been inserted**. I have done this to avoid exceeding the GMail SMTP limits and ensure that the live demo works without friction.
 - Since I am using the GMail's SMTP option to send email, there can be a possible delay of _4-5 minutes_ when there are more than a couple of subscribed email-addresses in the database.
 
 ## Author
@@ -64,5 +64,7 @@ The website is live and can be accessed at http://18.220.47.108/
 **Aditya Mitra**
 
 **GitHub:** https://github.com/aditya-mitra/
+
 **Portfolio:** https://aditya-mitra.github.io/
+
 **Linkedin:** https://www.linkedin.com/in/aditya--mitra/
