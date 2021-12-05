@@ -79,3 +79,5 @@
 </body>
 
 <script src="assets/js/subscribe-form.js"></script>
+
+<?php require __DIR__ . '/lib/layout/footer.php' ?>
