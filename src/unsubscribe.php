@@ -37,6 +37,7 @@
         $status_done = true;
     } else {
         header('Location: /404.php');
+        exit();
     }
 ?>
 
