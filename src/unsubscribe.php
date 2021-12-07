@@ -15,14 +15,14 @@
     $status_done = false;
 
     if (isset($_GET['email']) && !empty($_GET['email']) && isset($_GET['token']) && !empty($_GET['token'])) {
-        $email = $_GET['email'];
-        $token = $_GET['token'];
+        $email = filter_var($_GET['email'], FILTER_SANITIZE_EMAIL);
+        $token = filter_var($_GET['token'], FILTER_SANITIZE_STRING);
         
         $message = 'Do you want to unsubscribe?';
     } else if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['token']) && !empty($_POST['token'])) {
 
-        $email = $_POST['email'];
-        $token = $_POST['token'];
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $token = filter_var($_POST['token'], FILTER_SANITIZE_STRING);
 
         $emailExist = doesEmailExist($con, $email, $token);
         
