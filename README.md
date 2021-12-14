@@ -33,6 +33,7 @@ Since this is a simple project it must be done in core PHP including API calls, 
 <img src="https://i.ibb.co/d0pP14k/image.png" alt="image" border="0">
 
 <img src="https://i.ibb.co/qYTJNcj/image.png" alt="image" border="0">
+
 <img src="https://i.ibb.co/crWMshY/image.png" alt="image" border="0">
 
 ## Usage
